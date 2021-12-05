@@ -1,0 +1,10 @@
+# makefile for task
+task: Main.c Fill.c Print.c Average1.o PrintInf.c DelElem1.o Print1.o
+	gcc -g -o task Main.c Fill.c Print.c Average1.o PrintInf.c DelElem1.o Print1.o -no-pie
+DelElem1.o: DelElem1.asm
+#	gcc -g DelElem.c -o DelElem.o
+	nasm -f elf64 -g -F dwarf DelElem1.asm -l DelElem1.lst
+Average1.o: Average1.asm
+	nasm -f elf64 -g -F dwarf Average1.asm -l Average1.lst
+Print1.o: Print1.asm
+	nasm -f elf64 -g -F dwarf Print1.asm -l Print1.lst
